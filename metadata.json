@@ -1,0 +1,5 @@
+{
+  "name": "RAG Project Dashboard",
+  "description": "An interactive dashboard showcasing the details of a NotebookLM-Style RAG (Retrieval-Augmented Generation) system. It covers the project overview, problem statement, architecture, features, tech stack, and performance metrics.",
+  "requestFramePermissions": []
+}
