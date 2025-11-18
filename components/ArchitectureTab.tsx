@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Database, CheckCircle, Code, Zap } from './icons';
 
@@ -10,18 +9,18 @@ export const ArchitectureTab: React.FC = () => (
     
     <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 border-2 border-gray-300 shadow-xl">
       <div className="space-y-6">
-        <div className="text-center">
+        <div className="text-center animate-pop-in">
           <div className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-bold text-xl shadow-lg">
             USER UPLOADS DOCUMENT
           </div>
         </div>
         
         <div className="flex justify-center">
-          <div className="text-5xl text-blue-600 animate-bounce">↓</div>
+          <div className="text-5xl text-blue-600 animate-flow-down">↓</div>
         </div>
         
         <div className="grid md:grid-cols-3 gap-4">
-          <div className="bg-white rounded-lg p-6 shadow-lg border-2 border-purple-300 transform hover:scale-105 transition-all duration-300">
+          <div className="bg-white rounded-lg p-6 shadow-lg border-2 border-purple-300 transform hover:scale-105 transition-all duration-300 animate-slide-in-up" style={{ animationDelay: '100ms' }}>
             <h4 className="font-bold text-purple-600 mb-3 text-lg">1. EXTRACTION</h4>
             <ul className="text-sm space-y-2 text-gray-700">
               <li className="flex items-center gap-2"><span className="text-purple-600">•</span> PyMuPDF extracts text</li>
@@ -30,7 +29,7 @@ export const ArchitectureTab: React.FC = () => (
             </ul>
           </div>
           
-          <div className="bg-white rounded-lg p-6 shadow-lg border-2 border-green-300 transform hover:scale-105 transition-all duration-300">
+          <div className="bg-white rounded-lg p-6 shadow-lg border-2 border-green-300 transform hover:scale-105 transition-all duration-300 animate-slide-in-up" style={{ animationDelay: '250ms' }}>
             <h4 className="font-bold text-green-600 mb-3 text-lg">2. CHUNKING</h4>
             <ul className="text-sm space-y-2 text-gray-700">
               <li className="flex items-center gap-2"><span className="text-green-600">•</span> 1000-char chunks</li>
@@ -39,7 +38,7 @@ export const ArchitectureTab: React.FC = () => (
             </ul>
           </div>
           
-          <div className="bg-white rounded-lg p-6 shadow-lg border-2 border-blue-300 transform hover:scale-105 transition-all duration-300">
+          <div className="bg-white rounded-lg p-6 shadow-lg border-2 border-blue-300 transform hover:scale-105 transition-all duration-300 animate-slide-in-up" style={{ animationDelay: '400ms' }}>
             <h4 className="font-bold text-blue-600 mb-3 text-lg">3. VECTORIZATION</h4>
             <ul className="text-sm space-y-2 text-gray-700">
               <li className="flex items-center gap-2"><span className="text-blue-600">•</span> TF-IDF vectors</li>
@@ -50,10 +49,10 @@ export const ArchitectureTab: React.FC = () => (
         </div>
         
         <div className="flex justify-center">
-          <div className="text-5xl text-green-600 animate-bounce">↓</div>
+          <div className="text-5xl text-green-600 animate-flow-down">↓</div>
         </div>
         
-        <div className="text-center">
+        <div className="text-center animate-pop-in" style={{ animationDelay: '500ms' }}>
           <div className="inline-block bg-gradient-to-r from-orange-600 to-red-600 text-white px-8 py-4 rounded-lg font-bold text-xl shadow-lg">
             READY FOR QUERIES
           </div>
@@ -62,7 +61,7 @@ export const ArchitectureTab: React.FC = () => (
     </div>
 
     <div className="grid md:grid-cols-3 gap-6 mt-8">
-      <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border-2 border-blue-300 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+      <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border-2 border-blue-300 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-in-up" style={{ animationDelay: '600ms' }}>
         <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center gap-2">
           <Database className="w-6 h-6" />
           Backend (RAG Engine)
@@ -75,7 +74,7 @@ export const ArchitectureTab: React.FC = () => (
         </ul>
       </div>
 
-      <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 border-2 border-green-300 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+      <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 border-2 border-green-300 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-in-up" style={{ animationDelay: '750ms' }}>
         <h3 className="text-xl font-bold text-green-900 mb-4 flex items-center gap-2">
           <Code className="w-6 h-6" />
           Frontend (Streamlit)
@@ -88,7 +87,7 @@ export const ArchitectureTab: React.FC = () => (
         </ul>
       </div>
 
-      <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border-2 border-purple-300 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+      <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border-2 border-purple-300 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-in-up" style={{ animationDelay: '900ms' }}>
         <h3 className="text-xl font-bold text-purple-900 mb-4 flex items-center gap-2">
           <Zap className="w-6 h-6" />
           Utilities (utils.py)
