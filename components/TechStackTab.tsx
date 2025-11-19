@@ -3,98 +3,94 @@ import { CheckCircle } from './icons';
 
 export const TechStackTab: React.FC = () => {
   const languages = [
-    { name: 'Python 3.8+', purpose: 'Core programming language', version: '3.8+' },
-    { name: 'Streamlit', purpose: 'Web UI framework', version: '1.32.0' },
-    { name: 'GROQ API', purpose: 'Fast LLM inference', version: '0.34.1' }
+    { name: 'Python', purpose: 'Core Logic', version: '3.8+', color: 'text-yellow-400' },
+    { name: 'Streamlit', purpose: 'Frontend', version: '1.32', color: 'text-red-400' },
+    { name: 'GROQ', purpose: 'Inference', version: 'v1', color: 'text-orange-400' }
   ];
   const mlLibs = [
-    { name: 'scikit-learn', purpose: 'TF-IDF & ML algorithms', version: '1.3.2' },
-    { name: 'NumPy', purpose: 'Numerical computing', version: '1.24.3' },
-    { name: 'PyMuPDF', purpose: 'Fast PDF extraction', version: '1.23.8' }
-  ];
-  const decisions = [
-    { tech: 'Streamlit', why: 'Rapid UI development, Python-native, no frontend expertise needed', alt: 'Flask, Django' },
-    { tech: 'GROQ', why: 'Ultra-fast LLM inference (300+ tokens/sec), cost-effective, privacy-focused', alt: 'OpenAI, Claude' },
-    { tech: 'PyMuPDF', why: '3-5x faster than alternatives, robust PDF parsing', alt: 'PyPDF2, pdfplumber' },
-    { tech: 'scikit-learn', why: 'Industry-standard ML toolkit, lightweight, well-documented', alt: 'TensorFlow, PyTorch' },
-    { tech: 'TF-IDF', why: 'Fast, interpretable, no GPU required, works offline', alt: 'Sentence transformers' }
+    { name: 'Scikit-learn', purpose: 'TF-IDF', version: '1.3', color: 'text-blue-400' },
+    { name: 'NumPy', purpose: 'Math Ops', version: '1.24', color: 'text-cyan-400' },
+    { name: 'PyMuPDF', purpose: 'Parsing', version: '1.23', color: 'text-emerald-400' }
   ];
 
   return (
-  <div className="space-y-6 animate-fade-in">
-    <h2 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent mb-6">
-      Technology Stack
-    </h2>
-    
+  <div className="space-y-6">
     <div className="grid md:grid-cols-2 gap-6">
-      <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border-2 border-blue-300 hover:shadow-2xl transition-all duration-300 animate-slide-in-up">
-        <h3 className="text-xl font-bold text-blue-900 mb-4">Languages & Frameworks</h3>
-        <div className="space-y-3">
+      {/* Core Stack */}
+      <div className="glass-card rounded-2xl p-6 hover:bg-white/5 transition-colors">
+        <h3 className="text-lg font-bold text-white mb-6 border-b border-white/10 pb-2">Core Technologies</h3>
+        <div className="space-y-4">
           {languages.map((tech, idx) => (
-            <div key={idx} className="bg-white rounded-lg p-4 hover:scale-105 transition-transform duration-300 animate-pop-in" style={{ animationDelay: `${idx * 100}ms`}}>
-              <div className="flex justify-between items-center mb-1">
-                <span className="font-bold text-gray-900">{tech.name}</span>
-                <span className="text-xs bg-blue-200 text-blue-800 px-2 py-1 rounded">{tech.version}</span>
+            <div key={idx} className="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group cursor-default">
+              <div className="flex items-center gap-3">
+                  <div className={`w-2 h-2 rounded-full bg-current ${tech.color} group-hover:scale-150 transition-transform`}></div>
+                  <div>
+                    <div className="font-bold text-white">{tech.name}</div>
+                    <div className="text-xs text-slate-500">{tech.purpose}</div>
+                  </div>
               </div>
-              <p className="text-sm text-gray-600">{tech.purpose}</p>
+              <span className="text-xs font-mono bg-black/30 text-slate-300 px-2 py-1 rounded border border-white/5 group-hover:border-white/20 transition-colors">{tech.version}</span>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 border-2 border-green-300 hover:shadow-2xl transition-all duration-300 animate-slide-in-up" style={{ animationDelay: '150ms' }}>
-        <h3 className="text-xl font-bold text-green-900 mb-4">ML & Data Processing</h3>
-        <div className="space-y-3">
+      {/* ML Stack */}
+      <div className="glass-card rounded-2xl p-6 hover:bg-white/5 transition-colors">
+        <h3 className="text-lg font-bold text-white mb-6 border-b border-white/10 pb-2">ML Libraries</h3>
+        <div className="space-y-4">
           {mlLibs.map((tech, idx) => (
-            <div key={idx} className="bg-white rounded-lg p-4 hover:scale-105 transition-transform duration-300 animate-pop-in" style={{ animationDelay: `${150 + idx * 100}ms`}}>
-              <div className="flex justify-between items-center mb-1">
-                <span className="font-bold text-gray-900">{tech.name}</span>
-                <span className="text-xs bg-green-200 text-green-800 px-2 py-1 rounded">{tech.version}</span>
+            <div key={idx} className="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group cursor-default">
+              <div className="flex items-center gap-3">
+                  <div className={`w-2 h-2 rounded-full bg-current ${tech.color} group-hover:scale-150 transition-transform`}></div>
+                  <div>
+                    <div className="font-bold text-white">{tech.name}</div>
+                    <div className="text-xs text-slate-500">{tech.purpose}</div>
+                  </div>
               </div>
-              <p className="text-sm text-gray-600">{tech.purpose}</p>
+              <span className="text-xs font-mono bg-black/30 text-slate-300 px-2 py-1 rounded border border-white/5 group-hover:border-white/20 transition-colors">{tech.version}</span>
             </div>
           ))}
         </div>
       </div>
     </div>
 
-    <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl p-8 text-white shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 animate-gradient-move animate-slide-in-up" style={{ animationDelay: '300ms' }}>
-      <h3 className="text-2xl font-bold mb-6">AI Models</h3>
-      <div className="grid md:grid-cols-2 gap-8">
-        <div>
-          <h4 className="font-bold text-lg mb-3">Language Model</h4>
-          <ul className="space-y-2">
-            <li className="flex items-center gap-2"><CheckCircle className="w-5 h-5" /><span>llama-3.3-70b-versatile</span></li>
-            <li className="flex items-center gap-2"><CheckCircle className="w-5 h-5" /><span>70B parameters</span></li>
-            <li className="flex items-center gap-2"><CheckCircle className="w-5 h-5" /><span>8192 token context</span></li>
-            <li className="flex items-center gap-2"><CheckCircle className="w-5 h-5" /><span>300+ tokens/sec</span></li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="font-bold text-lg mb-3">Vectorization</h4>
-          <ul className="space-y-2">
-            <li className="flex items-center gap-2"><CheckCircle className="w-5 h-5" /><span>TF-IDF (scikit-learn)</span></li>
-            <li className="flex items-center gap-2"><CheckCircle className="w-5 h-5" /><span>Cosine similarity</span></li>
-            <li className="flex items-center gap-2"><CheckCircle className="w-5 h-5" /><span>O(n) complexity</span></li>
-            <li className="flex items-center gap-2"><CheckCircle className="w-5 h-5" /><span>In-memory caching</span></li>
-          </ul>
-        </div>
+    {/* AI Spotlight */}
+    <div className="glass-card rounded-2xl p-8 relative overflow-hidden border border-purple-500/30 group">
+      {/* Scanning beam effect */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-2xl">
+          <div className="absolute top-0 bottom-0 left-0 w-32 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-scan-beam"></div>
       </div>
-    </div>
 
-    <div className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200 animate-slide-in-up" style={{ animationDelay: '450ms' }}>
-      <h3 className="text-2xl font-bold text-gray-900 mb-4">Technology Decisions</h3>
-      <div className="space-y-4">
-        {decisions.map((item, idx) => (
-          <div key={idx} className="bg-white rounded-lg p-4 border-l-4 border-blue-400 hover:shadow-lg transition-all duration-300 transform hover:translate-x-2 animate-slide-in-up" style={{ animationDelay: `${500 + idx * 100}ms` }}>
-            <div className="flex justify-between items-start mb-2">
-              <h4 className="font-bold text-gray-900">{item.tech}</h4>
-              <span className="text-xs text-gray-500">Alt: {item.alt}</span>
-            </div>
-            <p className="text-gray-700 text-sm">{item.why}</p>
-          </div>
-        ))}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
+      <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-purple-600/20 blur-[80px] rounded-full group-hover:bg-purple-600/30 transition-colors duration-500"></div>
+      
+      <h3 className="text-2xl font-bold text-white mb-6 relative z-10">The AI Engine</h3>
+      <div className="grid md:grid-cols-2 gap-8 relative z-10">
+        <div className="group/item">
+          <h4 className="text-purple-400 font-bold uppercase text-sm tracking-widest mb-4 flex items-center gap-2">
+            LLM Model <div className="h-px w-8 bg-purple-500/50"></div>
+          </h4>
+          <div className="text-4xl font-bold text-white mb-2 group-hover/item:text-purple-200 transition-colors">Llama 3.3</div>
+          <div className="text-xl text-slate-400 mb-4">70B Versatile</div>
+          <ul className="space-y-2 text-sm text-slate-300">
+            <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-500" /> 8192 Context Window</li>
+            <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-purple-500" /> 300 Tokens/sec Speed</li>
+          </ul>
+        </div>
+        <div className="group/item">
+          <h4 className="text-blue-400 font-bold uppercase text-sm tracking-widest mb-4 flex items-center gap-2">
+            Vectorization <div className="h-px w-8 bg-blue-500/50"></div>
+          </h4>
+          <div className="text-4xl font-bold text-white mb-2 group-hover/item:text-blue-200 transition-colors">TF-IDF</div>
+          <div className="text-xl text-slate-400 mb-4">Scikit-Learn</div>
+           <ul className="space-y-2 text-sm text-slate-300">
+            <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-blue-500" /> Zero GPU Requirement</li>
+            <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-blue-500" /> In-Memory Caching</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 );
+};

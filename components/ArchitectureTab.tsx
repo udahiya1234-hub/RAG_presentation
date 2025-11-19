@@ -2,101 +2,102 @@ import React from 'react';
 import { Database, CheckCircle, Code, Zap } from './icons';
 
 export const ArchitectureTab: React.FC = () => (
-  <div className="space-y-6 animate-fade-in">
-    <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-6">
-      System Architecture
-    </h2>
-    
-    <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 border-2 border-gray-300 shadow-xl">
-      <div className="space-y-6">
-        <div className="text-center animate-pop-in">
-          <div className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-bold text-xl shadow-lg">
-            USER UPLOADS DOCUMENT
+  <div className="space-y-8">
+    {/* Flow Diagram */}
+    <div className="glass-card rounded-3xl p-8 border border-white/10 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10"></div>
+      
+      <div className="relative z-10 space-y-8">
+        {/* User Input */}
+        <div className="flex justify-center animate-pop-in">
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3 rounded-full font-bold text-sm tracking-wider shadow-[0_0_20px_rgba(37,99,235,0.5)] uppercase hover:scale-105 transition-transform cursor-default">
+            User Uploads Document
           </div>
         </div>
         
+        {/* Animated Data Flow Down */}
         <div className="flex justify-center">
-          <div className="text-5xl text-blue-600 animate-flow-down">↓</div>
+          <div className="w-px h-16 bg-[linear-gradient(to_bottom,transparent_50%,#3b82f6_50%)] bg-[length:1px_20px] animate-flow-vertical opacity-70"></div>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-4">
-          <div className="bg-white rounded-lg p-6 shadow-lg border-2 border-purple-300 transform hover:scale-105 transition-all duration-300 animate-slide-in-up" style={{ animationDelay: '100ms' }}>
-            <h4 className="font-bold text-purple-600 mb-3 text-lg">1. EXTRACTION</h4>
-            <ul className="text-sm space-y-2 text-gray-700">
-              <li className="flex items-center gap-2"><span className="text-purple-600">•</span> PyMuPDF extracts text</li>
-              <li className="flex items-center gap-2"><span className="text-purple-600">•</span> Text cleaning</li>
-              <li className="flex items-center gap-2"><span className="text-purple-600">•</span> Format detection</li>
-            </ul>
+        {/* Processing Pipeline Grid */}
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="glass-card bg-white/5 rounded-xl p-6 border-t-4 border-purple-500 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 group">
+            <div className="bg-purple-500/20 w-10 h-10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(168,85,247,0.2)]">
+                <span className="font-bold text-purple-400">01</span>
+            </div>
+            <h4 className="font-bold text-white mb-2 text-lg">Extraction</h4>
+            <p className="text-sm text-slate-400">PyMuPDF parses PDF binary streams into raw text, stripping formatting.</p>
           </div>
           
-          <div className="bg-white rounded-lg p-6 shadow-lg border-2 border-green-300 transform hover:scale-105 transition-all duration-300 animate-slide-in-up" style={{ animationDelay: '250ms' }}>
-            <h4 className="font-bold text-green-600 mb-3 text-lg">2. CHUNKING</h4>
-            <ul className="text-sm space-y-2 text-gray-700">
-              <li className="flex items-center gap-2"><span className="text-green-600">•</span> 1000-char chunks</li>
-              <li className="flex items-center gap-2"><span className="text-green-600">•</span> 200-char overlap</li>
-              <li className="flex items-center gap-2"><span className="text-green-600">•</span> Metadata tagging</li>
-            </ul>
+          <div className="glass-card bg-white/5 rounded-xl p-6 border-t-4 border-emerald-500 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 group">
+             <div className="bg-emerald-500/20 w-10 h-10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                <span className="font-bold text-emerald-400">02</span>
+            </div>
+            <h4 className="font-bold text-white mb-2 text-lg">Chunking</h4>
+            <p className="text-sm text-slate-400">Splits text into 1000-char overlapping windows for context retention.</p>
           </div>
           
-          <div className="bg-white rounded-lg p-6 shadow-lg border-2 border-blue-300 transform hover:scale-105 transition-all duration-300 animate-slide-in-up" style={{ animationDelay: '400ms' }}>
-            <h4 className="font-bold text-blue-600 mb-3 text-lg">3. VECTORIZATION</h4>
-            <ul className="text-sm space-y-2 text-gray-700">
-              <li className="flex items-center gap-2"><span className="text-blue-600">•</span> TF-IDF vectors</li>
-              <li className="flex items-center gap-2"><span className="text-blue-600">•</span> Cosine similarity</li>
-              <li className="flex items-center gap-2"><span className="text-blue-600">•</span> Cache in memory</li>
-            </ul>
+          <div className="glass-card bg-white/5 rounded-xl p-6 border-t-4 border-blue-500 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 group">
+             <div className="bg-blue-500/20 w-10 h-10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(59,130,246,0.2)]">
+                <span className="font-bold text-blue-400">03</span>
+            </div>
+            <h4 className="font-bold text-white mb-2 text-lg">Vectorization</h4>
+            <p className="text-sm text-slate-400">TF-IDF transforms text chunks into numerical vectors for math comparison.</p>
           </div>
         </div>
         
-        <div className="flex justify-center">
-          <div className="text-5xl text-green-600 animate-flow-down">↓</div>
+        {/* Animated Data Flow Down */}
+         <div className="flex justify-center">
+           <div className="w-px h-16 bg-[linear-gradient(to_bottom,transparent_50%,#64748b_50%)] bg-[length:1px_20px] animate-flow-vertical opacity-50"></div>
         </div>
         
+        {/* Output */}
         <div className="text-center animate-pop-in" style={{ animationDelay: '500ms' }}>
-          <div className="inline-block bg-gradient-to-r from-orange-600 to-red-600 text-white px-8 py-4 rounded-lg font-bold text-xl shadow-lg">
-            READY FOR QUERIES
+          <div className="inline-block glass-card px-8 py-3 rounded-xl font-bold text-white border border-white/20 relative overflow-hidden">
+            <div className="absolute inset-0 bg-emerald-500/10 animate-pulse"></div>
+            <span className="text-emerald-400 mr-2 inline-block animate-ping relative z-10">●</span> 
+            <span className="relative z-10">Ready For Queries</span>
           </div>
         </div>
       </div>
     </div>
 
-    <div className="grid md:grid-cols-3 gap-6 mt-8">
-      <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border-2 border-blue-300 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-in-up" style={{ animationDelay: '600ms' }}>
-        <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center gap-2">
-          <Database className="w-6 h-6" />
-          Backend (RAG Engine)
-        </h3>
-        <ul className="space-y-2 text-gray-700">
-          <li className="flex items-start gap-2"><CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" /><span>Document processing pipeline</span></li>
-          <li className="flex items-start gap-2"><CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" /><span>Vector database (TF-IDF)</span></li>
-          <li className="flex items-start gap-2"><CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" /><span>LLM integration (GROQ)</span></li>
-          <li className="flex items-start gap-2"><CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" /><span>Retrieval algorithms</span></li>
+    {/* Component Breakdown */}
+    <div className="grid md:grid-cols-3 gap-6">
+      <div className="glass-card p-6 rounded-2xl hover:bg-white/5 transition-colors border border-transparent hover:border-blue-500/30">
+        <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-blue-500/20 rounded-lg"><Database className="w-5 h-5 text-blue-400" /></div>
+            <h3 className="text-lg font-bold text-white">RAG Engine</h3>
+        </div>
+        <ul className="space-y-3 text-sm text-slate-400">
+            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>Vector Database</li>
+            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>Document Pipeline</li>
+            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>Similarity Search</li>
         </ul>
       </div>
 
-      <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 border-2 border-green-300 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-in-up" style={{ animationDelay: '750ms' }}>
-        <h3 className="text-xl font-bold text-green-900 mb-4 flex items-center gap-2">
-          <Code className="w-6 h-6" />
-          Frontend (Streamlit)
-        </h3>
-        <ul className="space-y-2 text-gray-700">
-          <li className="flex items-start gap-2"><CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" /><span>Document upload interface</span></li>
-          <li className="flex items-start gap-2"><CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" /><span>Real-time chat UI</span></li>
-          <li className="flex items-start gap-2"><CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" /><span>Learning tools panel</span></li>
-          <li className="flex items-start gap-2"><CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" /><span>Dashboard with metrics</span></li>
+       <div className="glass-card p-6 rounded-2xl hover:bg-white/5 transition-colors border border-transparent hover:border-green-500/30">
+        <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-green-500/20 rounded-lg"><Code className="w-5 h-5 text-green-400" /></div>
+            <h3 className="text-lg font-bold text-white">Frontend UI</h3>
+        </div>
+        <ul className="space-y-3 text-sm text-slate-400">
+            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>Streamlit Interface</li>
+            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>Chat History</li>
+            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>File Uploader</li>
         </ul>
       </div>
 
-      <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border-2 border-purple-300 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-in-up" style={{ animationDelay: '900ms' }}>
-        <h3 className="text-xl font-bold text-purple-900 mb-4 flex items-center gap-2">
-          <Zap className="w-6 h-6" />
-          Utilities (utils.py)
-        </h3>
-        <ul className="space-y-2 text-gray-700">
-          <li className="flex items-start gap-2"><CheckCircle className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" /><span>PDF extraction (PyMuPDF)</span></li>
-          <li className="flex items-start gap-2"><CheckCircle className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" /><span>Text cleaning pipeline</span></li>
-          <li className="flex items-start gap-2"><CheckCircle className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" /><span>Sentence extraction</span></li>
-          <li className="flex items-start gap-2"><CheckCircle className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" /><span>Keyword identification</span></li>
+       <div className="glass-card p-6 rounded-2xl hover:bg-white/5 transition-colors border border-transparent hover:border-purple-500/30">
+        <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-purple-500/20 rounded-lg"><Zap className="w-5 h-5 text-purple-400" /></div>
+            <h3 className="text-lg font-bold text-white">Integrations</h3>
+        </div>
+        <ul className="space-y-3 text-sm text-slate-400">
+            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-purple-500"></div>GROQ API (LLM)</li>
+            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-purple-500"></div>PyMuPDF</li>
+            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-purple-500"></div>Scikit-Learn</li>
         </ul>
       </div>
     </div>

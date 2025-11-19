@@ -26,77 +26,70 @@ const AnimatedNumber: React.FC<{ value: number; duration?: number; className?: s
 
 export const ProblemTab: React.FC = () => {
   const challenges = [
-    { icon: '📄', title: 'Manual Processing', desc: 'Handling large document volumes manually is time-consuming and error-prone' },
-    { icon: '❌', title: 'Information Overload', desc: 'Extracting key insights from hundreds of pages is difficult' },
-    { icon: '🔍', title: 'Slow Search', desc: 'Users need quick, accurate answers but traditional search is inadequate' },
-    { icon: '📚', title: 'Scattered Knowledge', desc: 'Learning materials and documentation are unorganized across multiple sources' },
-    { icon: '⏱️', title: 'No AI Analysis', desc: 'Traditional methods lack intelligent analysis and contextual understanding' },
-    { icon: '💰', title: 'High Costs', desc: 'Enterprise solutions are expensive and require subscriptions' }
+    { title: 'Information Overload', desc: 'Extracting insights from hundreds of pages is impossible manually.' },
+    { title: 'Hallucinations', desc: 'Standard LLMs make up facts without source grounding.' },
+    { title: 'Scattered Data', desc: 'Knowledge is buried in unconnected PDF and Doc files.' }
   ];
 
   const solutions = [
-    { icon: '✅', title: 'Upload Documents', desc: 'Supports PDF, DOCX, TXT with fast PyMuPDF extraction' },
-    { icon: '🤖', title: 'AI Analysis', desc: 'GROQ-powered LLM analyzes and extracts insights automatically' },
-    { icon: '💬', title: 'Instant Answers', desc: 'Get accurate, grounded responses with source citations' },
-    { icon: '📖', title: 'Learning Tools', desc: 'Auto-generate quizzes, flashcards, mind maps, and summaries' },
-    { icon: '🎨', title: 'User-Friendly UI', desc: 'Clean Streamlit interface with dark/light mode support' },
-    { icon: '🆓', title: 'Cost-Effective', desc: 'Open source, self-hosted, free GROQ tier available' }
+    { title: 'Instant Analysis', desc: 'GROQ-powered LLM analyzes documents in seconds.' },
+    { title: 'Grounded Truth', desc: 'Answers are strictly based on your provided documents.' },
+    { title: 'Centralized Hub', desc: 'Upload everything to one unified knowledge base.' }
   ];
 
   return (
-    <div className="space-y-8 animate-fade-in">
-      <h2 className="text-4xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent mb-6">
-        Problem Statement & Solution
-      </h2>
-      
-      <div>
-        <h3 className="text-3xl font-bold text-red-600 mb-4 flex items-center gap-3">
-          <AlertCircle className="w-8 h-8 animate-pulse" />
-          The Challenge
-        </h3>
-        <div className="grid md:grid-cols-2 gap-4">
-          {challenges.map((item, idx) => (
-            <div key={idx} className="bg-red-50 rounded-xl p-5 border-l-4 border-red-400 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-pop-in" style={{ animationDelay: `${idx * 100}ms` }}>
-              <div className="text-4xl mb-2">{item.icon}</div>
-              <h4 className="font-bold text-gray-900 mb-1">{item.title}</h4>
-              <p className="text-gray-700 text-sm">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <h3 className="text-3xl font-bold text-green-600 mb-4 flex items-center gap-3">
-          <CheckCircle className="w-8 h-8" />
-          Our Solution: RAG System
-        </h3>
+    <div className="space-y-8">
+      <div className="grid md:grid-cols-2 gap-8">
+        {/* Problem Section */}
         <div className="space-y-4">
-          {solutions.map((item, idx) => (
-            <div key={idx} className="bg-green-50 rounded-xl p-5 border-l-4 border-green-500 flex items-start gap-4 hover:shadow-xl transition-all duration-300 transform hover:translate-x-2 animate-slide-in-up" style={{ animationDelay: `${300 + idx * 100}ms` }}>
-              <div className="text-4xl">{item.icon}</div>
-              <div>
-                <h4 className="font-bold text-gray-900 mb-1">{item.title}</h4>
-                <p className="text-gray-700">{item.desc}</p>
-              </div>
+            <div className="flex items-center gap-3 mb-6">
+                <div className="p-3 bg-red-500/20 rounded-full"><AlertCircle className="w-6 h-6 text-red-400" /></div>
+                <h2 className="text-2xl font-bold text-white">The Challenge</h2>
             </div>
-          ))}
+            {challenges.map((item, idx) => (
+                <div key={idx} className="glass-card p-5 rounded-xl border-l-2 border-l-red-500/50 hover:bg-red-500/10 transition-colors duration-300">
+                    <h4 className="text-red-200 font-bold mb-1">{item.title}</h4>
+                    <p className="text-slate-400 text-sm">{item.desc}</p>
+                </div>
+            ))}
+        </div>
+
+        {/* Solution Section */}
+         <div className="space-y-4">
+            <div className="flex items-center gap-3 mb-6">
+                <div className="p-3 bg-emerald-500/20 rounded-full"><CheckCircle className="w-6 h-6 text-emerald-400" /></div>
+                <h2 className="text-2xl font-bold text-white">The Solution</h2>
+            </div>
+            {solutions.map((item, idx) => (
+                <div key={idx} className="glass-card p-5 rounded-xl border-l-2 border-l-emerald-500/50 hover:bg-emerald-500/10 transition-colors duration-300">
+                    <h4 className="text-emerald-200 font-bold mb-1">{item.title}</h4>
+                    <p className="text-slate-400 text-sm">{item.desc}</p>
+                </div>
+            ))}
         </div>
       </div>
 
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-8 text-white shadow-2xl transition-all duration-300 animate-pop-in" style={{ animationDelay: '800ms' }}>
-        <h3 className="text-3xl font-bold mb-4">Value Proposition</h3>
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="text-center transform hover:scale-110 transition-transform duration-300">
-            <div className="text-6xl font-bold mb-2"><AnimatedNumber value={10} />x</div>
-            <div className="text-blue-100">Faster than manual search</div>
+      {/* Impact Banner */}
+      <div className="mt-8 glass-card rounded-2xl p-8 bg-gradient-to-r from-blue-900/40 to-purple-900/40 border border-blue-500/30">
+        <h3 className="text-center text-slate-300 uppercase tracking-widest text-sm mb-8">Quantifiable Impact</h3>
+        <div className="grid md:grid-cols-3 gap-6 text-center divide-x divide-white/10">
+          <div className="group">
+            <div className="text-5xl font-bold text-white mb-2 group-hover:scale-110 transition-transform inline-block">
+                <AnimatedNumber value={10} />x
+            </div>
+            <div className="text-blue-300 text-sm font-medium">Faster Search</div>
           </div>
-          <div className="text-center transform hover:scale-110 transition-transform duration-300">
-            <div className="text-6xl font-bold mb-2">$<AnimatedNumber value={0} /></div>
-            <div className="text-blue-100">Cost with free tier</div>
+          <div className="group">
+            <div className="text-5xl font-bold text-white mb-2 group-hover:scale-110 transition-transform inline-block">
+                $<AnimatedNumber value={0} />
+            </div>
+            <div className="text-blue-300 text-sm font-medium">Operating Cost</div>
           </div>
-          <div className="text-center transform hover:scale-110 transition-transform duration-300">
-            <div className="text-6xl font-bold mb-2"><AnimatedNumber value={100} />%</div>
-            <div className="text-blue-100">Grounded answers</div>
+          <div className="group">
+            <div className="text-5xl font-bold text-white mb-2 group-hover:scale-110 transition-transform inline-block">
+                <AnimatedNumber value={100} />%
+            </div>
+            <div className="text-blue-300 text-sm font-medium">Source Accuracy</div>
           </div>
         </div>
       </div>
