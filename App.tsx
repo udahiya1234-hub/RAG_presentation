@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import type { Tab } from './types';
 import { Target, AlertCircle, Database, Zap, Code, TrendingUp, Users } from './components/icons';
 import { OverviewTab } from './components/OverviewTab';
@@ -39,6 +40,7 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-950 relative overflow-hidden font-sans text-slate-100 selection:bg-blue-500/30">
+      <Analytics />
       {/* Animated Background Blobs */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-purple-600/30 rounded-full blur-[128px] animate-blob"></div>
