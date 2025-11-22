@@ -1,105 +1,102 @@
 import React from 'react';
-import { Database, CheckCircle, Code, Zap } from './icons';
+import { Database, Code, Zap, Brain, FileText, Layers } from './icons';
 
 export const ArchitectureTab: React.FC = () => (
-  <div className="space-y-8">
-    {/* Flow Diagram */}
-    <div className="glass-card rounded-3xl p-8 border border-white/10 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10"></div>
+  <div className="space-y-10">
+    {/* Interactive Flow Diagram */}
+    <div className="glass-panel rounded-3xl p-12 border border-indigo-500/20 relative overflow-hidden bg-[#0B1120]">
       
-      <div className="relative z-10 space-y-8">
-        {/* User Input */}
-        <div className="flex justify-center animate-pop-in">
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3 rounded-full font-bold text-sm tracking-wider shadow-[0_0_20px_rgba(37,99,235,0.5)] uppercase hover:scale-105 transition-transform cursor-default">
-            User Uploads Document
-          </div>
+      {/* Schematic Background */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(56,189,248,0.3)_1px,transparent_1px),linear-gradient(180deg,rgba(56,189,248,0.3)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0B1120]"></div>
+      
+      <div className="relative z-10 space-y-12">
+        {/* Header */}
+        <div className="text-center mb-12">
+            <h2 className="text-2xl font-bold text-white">Data Pipeline Architecture</h2>
+            <p className="text-slate-400 text-sm">End-to-end flow from raw document to generated insight.</p>
         </div>
-        
-        {/* Animated Data Flow Down */}
+
+        {/* Step 1: Input */}
         <div className="flex justify-center">
-          <div className="w-px h-16 bg-[linear-gradient(to_bottom,transparent_50%,#3b82f6_50%)] bg-[length:1px_20px] animate-flow-vertical opacity-70"></div>
-        </div>
-        
-        {/* Processing Pipeline Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="glass-card bg-white/5 rounded-xl p-6 border-t-4 border-purple-500 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 group">
-            <div className="bg-purple-500/20 w-10 h-10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(168,85,247,0.2)]">
-                <span className="font-bold text-purple-400">01</span>
-            </div>
-            <h4 className="font-bold text-white mb-2 text-lg">Extraction</h4>
-            <p className="text-sm text-slate-400">PyMuPDF parses PDF binary streams into raw text, stripping formatting.</p>
-          </div>
-          
-          <div className="glass-card bg-white/5 rounded-xl p-6 border-t-4 border-emerald-500 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 group">
-             <div className="bg-emerald-500/20 w-10 h-10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(16,185,129,0.2)]">
-                <span className="font-bold text-emerald-400">02</span>
-            </div>
-            <h4 className="font-bold text-white mb-2 text-lg">Chunking</h4>
-            <p className="text-sm text-slate-400">Splits text into 1000-char overlapping windows for context retention.</p>
-          </div>
-          
-          <div className="glass-card bg-white/5 rounded-xl p-6 border-t-4 border-blue-500 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 group">
-             <div className="bg-blue-500/20 w-10 h-10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(59,130,246,0.2)]">
-                <span className="font-bold text-blue-400">03</span>
-            </div>
-            <h4 className="font-bold text-white mb-2 text-lg">Vectorization</h4>
-            <p className="text-sm text-slate-400">TF-IDF transforms text chunks into numerical vectors for math comparison.</p>
+          <div className="group relative z-10">
+             <div className="absolute -inset-2 bg-indigo-500/50 rounded-full blur opacity-20 group-hover:opacity-60 transition duration-500"></div>
+             <div className="relative bg-[#0f172a] text-indigo-100 px-8 py-4 rounded-full font-bold border border-indigo-500/50 flex items-center gap-4 shadow-xl">
+                <div className="bg-indigo-500 p-2 rounded-full text-white"><FileText className="w-5 h-5" /></div>
+                <span>User Uploads Document</span>
+             </div>
           </div>
         </div>
         
-        {/* Animated Data Flow Down */}
-         <div className="flex justify-center">
-           <div className="w-px h-16 bg-[linear-gradient(to_bottom,transparent_50%,#64748b_50%)] bg-[length:1px_20px] animate-flow-vertical opacity-50"></div>
+        {/* Connector Down */}
+        <div className="flex justify-center -my-6 relative z-0">
+          <div className="w-0.5 h-20 bg-gradient-to-b from-indigo-500 to-purple-500 animate-pulse"></div>
         </div>
         
-        {/* Output */}
-        <div className="text-center animate-pop-in" style={{ animationDelay: '500ms' }}>
-          <div className="inline-block glass-card px-8 py-3 rounded-xl font-bold text-white border border-white/20 relative overflow-hidden">
-            <div className="absolute inset-0 bg-emerald-500/10 animate-pulse"></div>
-            <span className="text-emerald-400 mr-2 inline-block animate-ping relative z-10">●</span> 
-            <span className="relative z-10">Ready For Queries</span>
-          </div>
+        {/* Step 2: Processing Grid */}
+        <div className="grid md:grid-cols-3 gap-8 relative max-w-4xl mx-auto">
+          {/* Horizontal Connector Line */}
+          <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent -z-10 hidden md:block dashed-line"></div>
+
+          {[
+              { step: '01', title: 'Extraction', desc: 'PyMuPDF text parsing', icon: Code, color: 'text-cyan-400', border: 'border-cyan-500/30' },
+              { step: '02', title: 'Chunking', desc: 'Recursive splitting', icon: Layers, color: 'text-indigo-400', border: 'border-indigo-500/30', scale: true },
+              { step: '03', title: 'Embeddings', desc: 'TF-IDF Vectorization', icon: Database, color: 'text-purple-400', border: 'border-purple-500/30' }
+          ].map((item, idx) => (
+              <div key={idx} className={`glass-card bg-[#1e293b]/80 rounded-2xl p-6 border ${item.border} text-center group ${item.scale ? 'md:scale-110 z-10 bg-[#1e293b]' : ''}`}>
+                <div className="w-12 h-12 mx-auto bg-white/5 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-white/10">
+                    <item.icon className={`w-6 h-6 ${item.color}`} />
+                </div>
+                <h4 className="font-bold text-white mb-1">{item.title}</h4>
+                <p className="text-xs text-slate-400">{item.desc}</p>
+              </div>
+          ))}
+        </div>
+        
+        {/* Connector Down */}
+         <div className="flex justify-center -my-6 relative z-0">
+           <div className="w-0.5 h-20 bg-gradient-to-b from-purple-500 to-emerald-500 animate-pulse"></div>
+        </div>
+        
+        {/* Step 3: Output */}
+        <div className="flex justify-center">
+             <div className="glass-card px-10 py-4 rounded-2xl font-bold text-white border border-emerald-500/50 flex items-center gap-4 shadow-[0_0_40px_rgba(16,185,129,0.2)]">
+                <div className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                </div>
+                <span>Knowledge Base Ready</span>
+            </div>
         </div>
       </div>
     </div>
 
-    {/* Component Breakdown */}
+    {/* Stack Details */}
     <div className="grid md:grid-cols-3 gap-6">
-      <div className="glass-card p-6 rounded-2xl hover:bg-white/5 transition-colors border border-transparent hover:border-blue-500/30">
-        <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 bg-blue-500/20 rounded-lg"><Database className="w-5 h-5 text-blue-400" /></div>
-            <h3 className="text-lg font-bold text-white">RAG Engine</h3>
-        </div>
-        <ul className="space-y-3 text-sm text-slate-400">
-            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>Vector Database</li>
-            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>Document Pipeline</li>
-            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>Similarity Search</li>
-        </ul>
-      </div>
-
-       <div className="glass-card p-6 rounded-2xl hover:bg-white/5 transition-colors border border-transparent hover:border-green-500/30">
-        <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 bg-green-500/20 rounded-lg"><Code className="w-5 h-5 text-green-400" /></div>
-            <h3 className="text-lg font-bold text-white">Frontend UI</h3>
-        </div>
-        <ul className="space-y-3 text-sm text-slate-400">
-            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>Streamlit Interface</li>
-            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>Chat History</li>
-            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>File Uploader</li>
-        </ul>
-      </div>
-
-       <div className="glass-card p-6 rounded-2xl hover:bg-white/5 transition-colors border border-transparent hover:border-purple-500/30">
-        <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 bg-purple-500/20 rounded-lg"><Zap className="w-5 h-5 text-purple-400" /></div>
-            <h3 className="text-lg font-bold text-white">Integrations</h3>
-        </div>
-        <ul className="space-y-3 text-sm text-slate-400">
-            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-purple-500"></div>GROQ API (LLM)</li>
-            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-purple-500"></div>PyMuPDF</li>
-            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-purple-500"></div>Scikit-Learn</li>
-        </ul>
-      </div>
+        {[
+            { title: 'RAG Engine', icon: Database, items: ['Vector Store', 'Document Loader', 'Similarity Search'], color: 'blue' },
+            { title: 'Frontend UI', icon: Code, items: ['Streamlit', 'React Components', 'File Uploader'], color: 'purple' },
+            { title: 'AI Models', icon: Brain, items: ['GROQ API', 'Llama 3.3', 'Scikit-Learn'], color: 'emerald' }
+        ].map((card, i) => (
+            <div key={i} className="glass-panel p-8 rounded-3xl border-t-2 border-t-white/10 hover:border-t-indigo-500 transition-colors">
+                <div className="flex items-center gap-4 mb-6">
+                    <div className={`p-3 bg-${card.color}-500/10 rounded-xl border border-${card.color}-500/20`}>
+                        <card.icon className={`w-6 h-6 text-${card.color}-400`} />
+                    </div>
+                    <h3 className="text-lg font-bold text-white">{card.title}</h3>
+                </div>
+                <ul className="space-y-3">
+                    {card.items.map((item, j) => (
+                        <li key={j} className="flex items-center gap-3 text-sm text-slate-300">
+                            <div className={`w-1.5 h-1.5 rounded-full bg-${card.color}-500`}></div>
+                            {item}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        ))}
     </div>
   </div>
 );
